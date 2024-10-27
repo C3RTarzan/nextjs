@@ -1,0 +1,8 @@
+---
+deployment:
+  tasks:
+    - export DEPLOY_DIR=$HOME/public_html # Define o diretório de deploy
+    - /usr/local/bin/npm install # Instala dependências do projeto
+    - /usr/local/bin/npm run build # Gera o build do Next.js
+    - /usr/local/bin/npm run export # Exporta como estático para o diretório 'out'
+    - /bin/cp -R out/* $DEPLOY_DIR # Copia o conteúdo gerado para o diretório de deploy
